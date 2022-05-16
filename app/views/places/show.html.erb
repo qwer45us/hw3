@@ -1,0 +1,16 @@
+<h1 style="font-family:Comic Sans MS"><%= @place["name"] %></h1>
+
+
+<h2 style="font-family:Comic Sans MS">Posts</h2>
+
+<ul style="font-family:Comic Sans MS">
+  <% for post in @posts %>
+    <li><%= post["title"] %>, <%= post["description"] %>, <%= post["posted_on"] %></li>
+  <% end %>
+</ul>
+
+<p>
+  <a style="font-family:Comic Sans MS" href="/posts/new?place_id= <%= @place["id"] %> ">New Post</a>
+</p>
+
+<p><a style="font-family:Comic Sans MS" href="/places">Back to All Places</a></p>

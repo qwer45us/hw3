@@ -1,11 +1,11 @@
-class PlaceController < ApplicationController
+class PlacesController < ApplicationController
     def index
         @places = Place.all
       end
     
       def show
         @place = Place.find_by({ "id" => params["id"] })
-        @posts = Contact.where({ "place_id" => @places["id"] })
+        @posts = Post.where({ "place_id" => @place["id"] })
       end
     
       def new
@@ -13,7 +13,7 @@ class PlaceController < ApplicationController
       end
     
       def create
-        @place = Post.new
+        @place = Place.new
         @place["name"] = params["place"]["name"]
         @place.save
         redirect_to "/places"
